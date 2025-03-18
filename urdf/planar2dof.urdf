@@ -86,7 +86,7 @@
   <link name="planar2dof/link_striker_ee">
     <inertial>
       <origin rpy="0 1.570796326790 0" xyz="0.0 0.0 0.0" />
-      <mass value="0.1" />
+      <mass value="0.8" />
       <inertia ixx="0.00010" ixy="0.00000" ixz="0.00000" iyy="0.00010" iyz="0.00000" izz="0.00010" />
     </inertial>
     <visual>
