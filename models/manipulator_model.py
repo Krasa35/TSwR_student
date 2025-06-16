@@ -1,5 +1,14 @@
 import numpy as np
 
+# IDEAL
+# self.l1 = 0.5
+# self.r1 = 0.04
+# self.m1 = 3.0
+# self.l2 = 0.4
+# self.r2 = 0.04
+# self.m2 = 2.4
+# self.m3 = 2.0
+# self.r3 = 0.05
 
 class ManipulatorModel:
     def __init__(self, Tp):
@@ -12,7 +21,7 @@ class ManipulatorModel:
         self.m2 = 2.4
         self.I_1 = 1 / 12 * self.m1 * (3 * self.r1 ** 2 + self.l1 ** 2)
         self.I_2 = 1 / 12 * self.m2 * (3 * self.r2 ** 2 + self.l2 ** 2)
-        self.m3 = 0.8
+        self.m3 = 0.1
         self.r3 = 0.05
         self.I_3 = 2. / 5 * self.m3 * self.r3 ** 2
 

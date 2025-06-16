@@ -29,7 +29,7 @@
     <child link="planar2dof/link_1" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
     <limit effort="40.0" lower="-3.1415" upper="3.1415" velocity="2.35619449019" />
-    <dynamics damping="0.0" friction="0.0"/>
+    <dynamics damping="0.0" friction="0.0" />
   </joint>
 
   <link name="planar2dof/link_1">
@@ -55,7 +55,7 @@
     <child link="planar2dof/link_2" />
     <origin xyz="0.5 0 0" />
     <limit effort="15.0" lower="-2.5" upper="2.5" velocity="2.35619449019" />
-    <dynamics damping="0.0" friction="0.0"/>
+    <dynamics damping="0.0" friction="0.0" />
   </joint>
 
   <link name="planar2dof/link_2">
@@ -80,13 +80,13 @@
       <parent link="planar2dof/link_2" />
       <child link="planar2dof/link_striker_ee" />
       <origin xyz="0.4 0 0.0" />
-      <dynamics damping="0.0" friction="0.0"/>
+      <dynamics damping="0.0" friction="0.0" />
   </joint>
 
   <link name="planar2dof/link_striker_ee">
     <inertial>
       <origin rpy="0 1.570796326790 0" xyz="0.0 0.0 0.0" />
-      <mass value="0.8" />
+      <mass value="0.1" /> 
       <inertia ixx="0.00010" ixy="0.00000" ixz="0.00000" iyy="0.00010" iyz="0.00000" izz="0.00010" />
     </inertial>
     <visual>
