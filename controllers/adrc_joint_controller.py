@@ -9,16 +9,29 @@ class ADRCJointController(Controller):
         self.kp = kp
         self.kd = kd
 
-        A = None
-        B = None
-        L = None
-        W = None
+        A = np.array([[0, 1, 0],
+                      [0, 0, 1],
+                      [0, 0, 0]])
+        B = np.array([[0],
+                      [b],
+                      [0]])
+        L = np.array([[3*p],
+                      [3*p**2],
+                      [p**3]])
+        W = np.array([[1, 0, 0]])
         self.eso = ESO(A, B, W, L, q0, Tp)
+        self.prev_u = 0.
 
     def set_b(self, b):
-        ### TODO update self.b and B in ESO
-        return NotImplementedError
+        self.b = b
+        B = np.array([[0.], [self.b], [0.]])
+        self.eso.set_B(B)
 
     def calculate_control(self, x, q_d, q_d_dot, q_d_ddot):
-        ### TODO implement ADRC
-        return NotImplementedError
+        q_hat, q_hat_dot, f = self.eso.get_state()
+        v = q_d_ddot + self.kp * (q_d - q_hat) +  self.kd * (q_d_dot - q_hat_dot)
+        self.b = np.linalg.inv(self)
+        u = (v - f) / self.b
+        self.last_u = u
+        self.eso.update(x[0], self.last_u)
+        return u
